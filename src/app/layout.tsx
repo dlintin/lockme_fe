@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
+import { AuthProvider } from "../components/AuthProvider";
+
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
@@ -32,7 +34,9 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${plusJakartaSans.variable} ${playfairDisplay.variable} antialiased bg-brand-cream text-brand-darkText dark:bg-brand-dark dark:text-brand-cream transition-colors duration-300`}
             >
-                {children}
+                <AuthProvider>
+                    {children}
+                </AuthProvider>
             </body>
         </html>
     );
